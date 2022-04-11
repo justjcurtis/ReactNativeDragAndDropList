@@ -53,7 +53,6 @@ const App = () => {
     <DraggableFlatList
       data={data}
       onDragEnd={({data: newData}) => {
-        console.log(newData);
         if (data[0].key === newData[0].key) {
           setData(newData);
         }
