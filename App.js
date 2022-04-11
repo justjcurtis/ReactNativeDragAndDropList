@@ -3,6 +3,7 @@ import {Text, StyleSheet, TouchableOpacity} from 'react-native';
 import DraggableFlatList, {
   ScaleDecorator,
 } from 'react-native-draggable-flatlist';
+import {GestureHandlerRootView} from 'react-native-gesture-handler';
 
 const NUM_ITEMS = 20;
 
@@ -50,16 +51,18 @@ const App = () => {
   };
 
   return (
-    <DraggableFlatList
-      data={data}
-      onDragEnd={({data: newData}) => {
-        if (data[0].key === newData[0].key) {
-          setData(newData);
-        }
-      }}
-      keyExtractor={item => item.key}
-      renderItem={renderItem}
-    />
+    <GestureHandlerRootView>
+      <DraggableFlatList
+        data={data}
+        onDragEnd={({data: newData}) => {
+          if (data[0].key === newData[0].key) {
+            setData(newData);
+          }
+        }}
+        keyExtractor={item => item.key}
+        renderItem={renderItem}
+      />
+    </GestureHandlerRootView>
   );
 };
 
