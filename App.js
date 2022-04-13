@@ -5,7 +5,7 @@ import DraggableFlatList, {
 } from 'react-native-draggable-flatlist';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 
-const NUM_ITEMS = 20;
+const NUM_ITEMS = 100;
 
 const getColor = i => {
   const multiplier = 255 / (NUM_ITEMS - 1);
@@ -37,7 +37,7 @@ const App = () => {
             styles.rowItem,
             {backgroundColor: isActive ? 'red' : item.backgroundColor},
           ]}>
-          <Text style={styles.text}>{item.label}</Text>
+          <Text style={styles.text}> {item.label} </Text>
           {isDraggable ? (
             <Text onLongPress={drag} style={styles.text}>
               🍔
